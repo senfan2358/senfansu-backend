@@ -1,0 +1,6 @@
+问题：mysql 无法链接，Caused by: java.io.IOException: caching_sha2_password Auth failed
+解决方案：
+https://github.com/alibaba/canal/issues/3902
+ALTER USER 'canal'@'%' IDENTIFIED WITH mysql_native_password BY 'canal';
+ALTER USER 'canal'@'%' IDENTIFIED BY 'canal' PASSWORD EXPIRE NEVER;
+FLUSH PRIVILEGES;
